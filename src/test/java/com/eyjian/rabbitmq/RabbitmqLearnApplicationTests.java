@@ -1,7 +1,6 @@
 package com.eyjian.rabbitmq;
 
 import com.eyjian.rabbitmq.dealline.DealConstant;
-import com.rabbitmq.client.Channel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -22,12 +21,5 @@ public class RabbitmqLearnApplicationTests {
         rabbitTemplate.convertAndSend(DealConstant.DEAL_LINE_QUEUE,"hell word");
     }
 
-    @Test
-    public void deletequeue() throws IOException {
-        Channel channel = rabbitTemplate.getConnectionFactory().createConnection().createChannel(true);
-//        channel.queueDelete(DealConstant.DEAL_LINE_QUEUE);
-
-        channel.queueUnbind(DealConstant.REAL_QUEUE,DealConstant.DEAL_LINE_EXCHANGE,"");
-    }
 
 }
