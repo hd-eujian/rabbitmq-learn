@@ -30,7 +30,7 @@ public class RabbitmqConfig {
         Map<String, Object> args = new HashMap<>();
         args.put("x-dead-letter-exchange", DealConstant.DEAL_LINE_EXCHANGE);
         args.put("x-dead-letter-routing-key", DealConstant.DEAL_LINE_QUEUE);//超时转发的队列
-        args.put("x-message-ttl", 5000);//延时时间
+//        args.put("x-message-ttl", 5000);//延时时间
         Queue queue = new Queue(DealConstant.DEAL_LINE_QUEUE,true,false,false,args);
         return queue;
     }
